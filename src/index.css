@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  background-color: #FAF7F2;
+  color: #4A3F3A;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #FAF7F2; }
+::-webkit-scrollbar-thumb { background: #D8A7B1; border-radius: 3px; }
+
+/* Tile background preview util */
+.fabric-tile-bg {
+  background-repeat: repeat;
+  background-size: 80px 80px;
+}
+
+/* Stitch animation for decorative borders */
+@keyframes dash-move {
+  to { stroke-dashoffset: -20; }
+}
+
+.stitch-animated {
+  animation: dash-move 1s linear infinite;
+}
+
+/* Toast animations */
+@keyframes slide-in {
+  from { transform: translateX(120%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slide-out {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(120%); opacity: 0; }
+}
+.toast-enter { animation: slide-in 0.3s ease; }
+.toast-exit { animation: slide-out 0.3s ease; }
