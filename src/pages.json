@@ -1,0 +1,28 @@
+{
+  "pages": [
+    { "path": "pages/index/index", "style": { "navigationBarTitleText": "PatchLab" } },
+    { "path": "pages/fabrics/index", "style": { "navigationBarTitleText": "我的面料" } },
+    { "path": "pages/upload/index", "style": { "navigationBarTitleText": "上传面料" } },
+    { "path": "pages/studio/index", "style": { "navigationStyle": "custom" } },
+    { "path": "pages/gallery/index", "style": { "navigationBarTitleText": "我的作品" } },
+    { "path": "pages/settings/index", "style": { "navigationBarTitleText": "设置" } }
+  ],
+  "tabBar": {
+    "color": "#8A7F78",
+    "selectedColor": "#D8A7B1",
+    "backgroundColor": "#FDFBF9",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页", "iconPath": "static/tab-home.png", "selectedIconPath": "static/tab-home-active.png" },
+      { "pagePath": "pages/fabrics/index", "text": "面料", "iconPath": "static/tab-fabric.png", "selectedIconPath": "static/tab-fabric-active.png" },
+      { "pagePath": "pages/gallery/index", "text": "作品", "iconPath": "static/tab-gallery.png", "selectedIconPath": "static/tab-gallery-active.png" },
+      { "pagePath": "pages/settings/index", "text": "设置", "iconPath": "static/tab-settings.png", "selectedIconPath": "static/tab-settings-active.png" }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarBackgroundColor": "#FDFBF9",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F4EFE7",
+    "backgroundTextStyle": "dark"
+  }
+}

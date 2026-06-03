@@ -1,15 +1,15 @@
 export function processImage(
-  img: HTMLImageElement,
+  img: HTMLImageElement | HTMLCanvasElement,
   saturation: number,
   brightness: number,
 ): HTMLCanvasElement | HTMLImageElement {
-  if (saturation === 0 && brightness === 0) return img
-  const w = img.naturalWidth || img.width || 512
-  const h = img.naturalHeight || img.height || 512
+  if (saturation === 0 && brightness === 0) return img as HTMLImageElement
+  const w = (img as HTMLImageElement).naturalWidth || img.width || 512
+  const h = (img as HTMLImageElement).naturalHeight || img.height || 512
   const canvas = document.createElement('canvas')
   canvas.width = w
   canvas.height = h
-  const ctx = canvas.getContext('2d')!
+  const ctx = canvas.getContext('2d', { willReadFrequently: true })!
   ctx.drawImage(img, 0, 0)
   const imageData = ctx.getImageData(0, 0, w, h)
   const d = imageData.data

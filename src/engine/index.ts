@@ -1,0 +1,7 @@
+export { CanvasEngine } from './core/Engine'
+export { EngineNode, GroupNode } from './core/Node'
+export { PatternFillNode } from './nodes/PatternFillNode'
+export { PatchNode } from './nodes/PatchNode'
+export { AccessoryNode } from './nodes/AccessoryNode'
+export { SceneBuilder } from './SceneBuilder'
+export type { Point, Rect, ViewportState } from './core/types'

@@ -1,0 +1,47 @@
+// PatchLab Design Tokens — 暖色系布艺主题
+
+// ── Colors ──
+$color-primary: #D8A7B1;
+$color-primary-dark: #C48B96;
+$color-primary-light: #F0D5DA;
+
+$color-background: #FDFBF9;
+$color-surface: #FFFFFF;
+$color-surface-secondary: #F4EFE7;
+
+$color-text-primary: #3D3530;
+$color-text-secondary: #8A7F78;
+$color-text-tertiary: #B5ADA6;
+
+$color-border: #E8E2DA;
+$color-border-light: #F0EBE4;
+
+$color-success: #7FB083;
+$color-error: #D87A7A;
+$color-warning: #D4A94D;
+
+// ── Spacing ──
+$spacing-xs: 8rpx;
+$spacing-sm: 16rpx;
+$spacing-md: 24rpx;
+$spacing-lg: 32rpx;
+$spacing-xl: 48rpx;
+
+// ── Border Radius ──
+$radius-sm: 8rpx;
+$radius-md: 16rpx;
+$radius-lg: 24rpx;
+$radius-full: 999rpx;
+
+// ── Font Sizes ──
+$font-xs: 22rpx;
+$font-sm: 24rpx;
+$font-base: 28rpx;
+$font-md: 32rpx;
+$font-lg: 36rpx;
+$font-xl: 44rpx;
+
+// ── Shadows ──
+$shadow-sm: 0 2rpx 8rpx rgba(61, 53, 48, 0.06);
+$shadow-md: 0 4rpx 16rpx rgba(61, 53, 48, 0.08);
+$shadow-lg: 0 8rpx 32rpx rgba(61, 53, 48, 0.12);

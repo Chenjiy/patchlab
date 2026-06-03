@@ -8,7 +8,6 @@ type DrawCtx = {
   closePath(): void
 }
 
-/** Parse and draw a simple SVG path (M, L, Q, C, Z) into a canvas 2D context. */
 export function drawSvgPath(ctx: DrawCtx, pathData: string, scaleX = 1, scaleY = 1) {
   const tokens = pathData.match(/[MLQCZmlqcz]|[-\d.]+(?:e[-+]?\d+)?/g) || []
   let i = 0

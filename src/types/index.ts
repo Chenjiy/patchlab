@@ -58,7 +58,6 @@ export interface DesignProject {
   baseFabricOffsetY: number
   baseFabricSaturation?: number
   baseFabricBrightness?: number
-  // Custom template shape parameters (cm / mm)
   customTopCm?: number
   customBottomCm?: number
   customHeightCm?: number
