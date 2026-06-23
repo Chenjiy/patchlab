@@ -1,3 +1,4 @@
+import './polyfills'
 import { createSSRApp } from 'vue'
 import { pinia } from './stores'
 import App from './App.vue'

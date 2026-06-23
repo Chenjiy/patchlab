@@ -1,3 +1,5 @@
+import { createOffscreenCanvas } from '../engine/platform'
+
 export function processImage(
   img: HTMLImageElement | HTMLCanvasElement,
   saturation: number,
@@ -6,7 +8,7 @@ export function processImage(
   if (saturation === 0 && brightness === 0) return img as HTMLImageElement
   const w = (img as HTMLImageElement).naturalWidth || img.width || 512
   const h = (img as HTMLImageElement).naturalHeight || img.height || 512
-  const canvas = document.createElement('canvas')
+  const canvas = createOffscreenCanvas(w, h)
   canvas.width = w
   canvas.height = h
   const ctx = canvas.getContext('2d', { willReadFrequently: true })!

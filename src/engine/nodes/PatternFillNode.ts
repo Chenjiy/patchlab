@@ -1,5 +1,6 @@
 import { EngineNode } from '../core/Node'
 import { processImage } from '../../utils/imageProcessing'
+import { createPlatformImage } from '../platform'
 
 export class PatternFillNode extends EngineNode {
   private rawImage: HTMLImageElement | null = null
@@ -27,8 +28,9 @@ export class PatternFillNode extends EngineNode {
     if (!url) return
 
     this.loading = true
-    const img = new Image()
-    img.crossOrigin = 'anonymous'
+    const img = createPlatformImage()
+    // crossOrigin 仅 H5 的 HTMLImageElement 支持；小程序 createImage() 没有该属性
+    if ('crossOrigin' in img) img.crossOrigin = 'anonymous'
     img.onload = () => {
       this.rawImage = img
       this.processedImage = processImage(img, this.saturation, this.brightness)

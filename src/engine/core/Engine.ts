@@ -1,5 +1,12 @@
 import { GroupNode, EngineNode } from './Node'
 import type { ViewportState, Point } from './types'
+import {
+  getDevicePixelRatio,
+  requestFrame,
+  cancelFrame,
+  applyCanvasDisplaySize,
+  setPlatformCanvas,
+} from '../platform'
 
 export class CanvasEngine {
   private ctx: CanvasRenderingContext2D | null = null
@@ -29,13 +36,13 @@ export class CanvasEngine {
 
   init(canvas: HTMLCanvasElement, width: number, height: number) {
     this.canvas = canvas
-    this._dpr = window.devicePixelRatio || 1
+    setPlatformCanvas(canvas)
+    this._dpr = getDevicePixelRatio()
     this._width = width
     this._height = height
     canvas.width = Math.round(width * this._dpr)
     canvas.height = Math.round(height * this._dpr)
-    canvas.style.width = width + 'px'
-    canvas.style.height = height + 'px'
+    applyCanvasDisplaySize(canvas, width, height)
     this.ctx = canvas.getContext('2d')!
     this.ctx.scale(this._dpr, this._dpr)
     console.log(`[Engine] init: display=${width}x${height}, dpr=${this._dpr}, buffer=${canvas.width}x${canvas.height}`)
@@ -51,8 +58,7 @@ export class CanvasEngine {
     if (this.canvas) {
       this.canvas.width = Math.round(width * this._dpr)
       this.canvas.height = Math.round(height * this._dpr)
-      this.canvas.style.width = width + 'px'
-      this.canvas.style.height = height + 'px'
+      applyCanvasDisplaySize(this.canvas, width, height)
     }
     if (this.ctx) {
       this.ctx.setTransform(this._dpr, 0, 0, this._dpr, 0, 0)
@@ -65,7 +71,7 @@ export class CanvasEngine {
 
   destroy() {
     if (this.rafId) {
-      cancelAnimationFrame(this.rafId)
+      cancelFrame(this.rafId)
       this.rafId = 0
     }
     this.ctx = null
@@ -82,9 +88,9 @@ export class CanvasEngine {
         this.render()
         this.dirty = false
       }
-      this.rafId = requestAnimationFrame(loop)
+      this.rafId = requestFrame(loop)
     }
-    this.rafId = requestAnimationFrame(loop)
+    this.rafId = requestFrame(loop)
   }
 
   private render() {
